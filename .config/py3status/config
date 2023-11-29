@@ -1,0 +1,42 @@
+
+
+order += "spotify"
+spotify {
+    format = "{title} by {artist}"
+    format_down = "no Spotify"
+}
+
+order += "group sensors"
+
+group sensors {
+  cycle = 5
+  format = '{output}'
+  py3
+  lm_sensors {
+    format_chip = '{format_sensor}'
+    format_sensor = 'CPU '
+    format_sensor += '[\?color=auto.input {input}°C]'
+    sensors = ['core_0']
+  }
+
+ lm_sensors {
+    format_chip = '{format_sensor}'
+    format_sensor = 'GPU '
+    format_sensor += '[\?color=auto.input {input}°C]'
+    sensors = ['edge']
+  }
+
+ lm_sensors {
+    format_chip = '{format_sensor}'
+    format_sensor = 'SSD '
+    format_sensor += '[\?color=auto.input {input}°C]'
+    sensors = ['composite']
+  }
+}
+
+
+order += "clock"
+clock {
+  format_time = "%Y-%m-%d %H:%M:%S"
+}
+
