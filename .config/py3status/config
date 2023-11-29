@@ -1,43 +1,88 @@
 
+py3status {
+  align = 'center'
+  position = 'center'
+}
 
 
+# This module will appear only when there are changes
+# on dotfile repo without being commited
 order += 'external_script'
 external_script {
   script_path = "~/.config/py3status/custom_scripts/check_dotfile_repo_for_uncommited_changes"
 }
 
 
+
 order += "spotify"
 spotify {
-    format = "{title} by {artist}"
+    format = "{artist}: {title}"
     format_down = "no Spotify"
 }
 
-order += "group sensors"
 
+order += 'sysdata'
+# display per cpu histogram
+sysdata {    
+    thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
+    cache_timeout = 2
+}
+
+
+order += 'group disks'
+group disks {
+  cycle = 5
+  format = '{output}'
+  min_width = 100
+
+  disk "/" {
+    format = " / %avail "
+    low_threshold = 10
+  }
+
+
+  disk "/mnt/SSD" {
+    format = " SSD %avail "
+    low_threshold = 10
+  }
+
+
+  disk "/mnt/VMs" {
+    format = " VMs %avail "
+    low_threshold = 10
+  }
+
+}
+
+
+order += "group sensors"
 group sensors {
   cycle = 5
   format = '{output}'
-  py3
+  min_length = 13
+
   lm_sensors {
     format_chip = '{format_sensor}'
     format_sensor = 'CPU '
-    format_sensor += '[\?color=auto.input {input}°C]'
+    format_sensor += '[\?color=input {input}°C]'
     sensors = ['core_0']
+    thresholds = [(0, "good"), (50, "degraded"), (65, "bad")]
   }
 
- lm_sensors {
+  lm_sensors {
     format_chip = '{format_sensor}'
     format_sensor = 'GPU '
-    format_sensor += '[\?color=auto.input {input}°C]'
+    format_sensor += '[\?color=input {input}°C]'
     sensors = ['edge']
+    thresholds = [(0, "good"), (50, "degraded"), (65, "bad")]
   }
 
- lm_sensors {
+  lm_sensors {
     format_chip = '{format_sensor}'
     format_sensor = 'SSD '
-    format_sensor += '[\?color=auto.input {input}°C]'
+    format_sensor += '[\?color=input {input:.0f}°C]'
     sensors = ['composite']
+    thresholds = [(0, "good"), (50, "degraded"), (65, "bad")]
   }
 }
 
