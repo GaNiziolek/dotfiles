@@ -1,5 +1,12 @@
 
 
+
+order += 'external_script'
+external_script {
+  script_path = "~/.config/py3status/custom_scripts/check_dotfile_repo_for_uncommited_changes"
+}
+
+
 order += "spotify"
 spotify {
     format = "{title} by {artist}"

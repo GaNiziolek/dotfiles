@@ -1,0 +1,8 @@
+cd ~/dotfiles
+
+if git diff --quiet ; then
+  echo 
+else
+  echo "Dirty Dotfiles repo"
+  echo "#ff0000"
+fi
