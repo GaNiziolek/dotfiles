@@ -315,7 +315,9 @@ exec --no-startup-id clipit
 # exec_always --no-startup-id sbxkb
 exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
-exec --no-startup-id xautolock -time 10 -locker blurlock
+
+# LockScreen
+# exec --no-startup-id xautolock -time 10 -locker blurlock
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
@@ -327,7 +329,7 @@ exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.i3/layouts/workspace
 exec --no-startup-id spotify
 exec --no-startup-id whatsapp
 exec --no-startup-id discord
-exec --no-startup-id betterbird
+
 
 # Set screen setup (position and resolutions) according actual
 # detected connected screens
