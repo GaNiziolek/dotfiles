@@ -24,7 +24,7 @@ spotify {
 order += 'sysdata'
 # display per cpu histogram
 sysdata {    
-    thresholds = [(0, "good"), (60, "degraded"), (80, "bad")]
+    thresholds = [(0, "good"), (90, "degraded"), (95, "bad")]
     cache_timeout = 2
 }
 
