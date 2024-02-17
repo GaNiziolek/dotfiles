@@ -1,4 +1,9 @@
 
+# ScreenLayout
+mkdir -p ~/.screenlayout
+cd ~/.screenlayout
+ln -s -f ~/dotfiles/.screenlayout/default.sh default.sh
+
 # Discord
 mkdir -p ~/.config/discord
 cd ~/.config/discord
