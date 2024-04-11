@@ -24,3 +24,7 @@ ln -s -f ~/dotfiles/.config/waybar/style.css style.css
 mkdir -p ~/.config/hypr
 cd ~/.config/hypr
 ln -s -f ~/dotfiles/.config/hypr/hyprpaper.conf hyprpaper.conf
+
+# docker
+cd /etc
+sudo ln -s ~/dotfiles/etc/docker docker
