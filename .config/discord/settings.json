@@ -1,11 +1,12 @@
 {
   "IS_MAXIMIZED": false,
-  "IS_MINIMIZED": true,
+  "IS_MINIMIZED": false,
   "WINDOW_BOUNDS": {
-    "x": 0,
-    "y": 24,
+    "x": 1920,
+    "y": 291,
     "width": 1366,
-    "height": 744
+    "height": 719
   },
-  "SKIP_HOST_UPDATE": true
+  "SKIP_HOST_UPDATE": true,
+  "chromiumSwitches": {}
 }
