@@ -86,6 +86,10 @@ group sensors {
   }
 }
 
+order += "battery_level"
+battery_level {
+  notification=true
+}
 
 order += "clock"
 clock {
